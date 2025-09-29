@@ -6,6 +6,12 @@ body {
   color: white;
 }
 
+h1, h2, h3 {
+  margin: 0px;
+  padding: 0px;
+  font-weight: 500;
+}
+
 *
 {
  box-sizing: border-box;
