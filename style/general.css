@@ -1,0 +1,13 @@
+body {
+  font-family: "Amazon Ember", Roboto, Arial, sans-serif;
+  background-color: rgb(255, 255, 255);
+  margin: 0px;
+  padding: 0px;
+  color: white;
+}
+
+*
+{
+ box-sizing: border-box;
+}
+
