@@ -1,19 +1,73 @@
+:root {
+  --clr-blue-dark : #131921;
+  --clr-orange : #f08804;
+  --clr-orange-light : #ffa500;
+  --clr-white :  #ffffff;
+}
+
+*{
+  margin: 0;
+  line-height: calc(1em + 0.5rem);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Amazon Ember", Roboto, Arial, sans-serif;
-  background-color: rgb(255, 255, 255);
-  margin: 0px;
-  padding: 0px;
-  color: white;
+  background-color: var(--clr-white);
 }
 
-h1, h2, h3 {
-  margin: 0px;
-  padding: 0px;
-  font-weight: 500;
+nav {
+  width: 100%;
 }
 
-*
-{
- box-sizing: border-box;
+section {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+img {
+  display: inline-block;
+  max-width: 100%;
+  user-select: none;
+}
+
+button{
+  display: inline-block;
+  padding: 0;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+form{
+  display: flex;
+  gap: 0.2rem;
+  flex: 1;
+}
+
+input {
+  flex: 1;
+  width: 100%;
+  max-width: 900px;
+  display: inline-block;
+  padding: 0.5rem 0.9rem;
+  font-size: clamp(0.9rem, 1vw, 1.2rem);  /*14px to 19px */
+  outline: none;
+  box-sizing: border-box;  
+}
+
+
+
+
+
 
