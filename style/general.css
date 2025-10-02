@@ -3,10 +3,15 @@
   --clr-orange : #f08804;
   --clr-orange-light : #ffa500;
   --clr-white :  #ffffff;
+  --clr-grey : #a7a3a3;
+  --clr-yellow : #ffd814;
+  
 }
 
 *{
   margin: 0;
+  padding: 0;
+  font-size: 1rem;
   line-height: calc(1em + 0.5rem);
 }
 
@@ -33,6 +38,7 @@ img {
   display: inline-block;
   max-width: 100%;
   user-select: none;
+  height: auto;
 }
 
 button{
@@ -61,11 +67,22 @@ input {
   max-width: 900px;
   display: inline-block;
   padding: 0.5rem 0.9rem;
-  font-size: clamp(0.9rem, 1vw, 1.2rem);  /*14px to 19px */
+  font-size: clamp(0.8rem, 1vw, 1rem);  /*10px to 16px */
   outline: none;
   box-sizing: border-box;  
+  border-radius: 0.2rem;
 }
 
+select {
+  display: block;
+  max-width: clamp(2rem, 2vw, 2.5rem);
+  border: 1px solid var(--clr-grey);
+  background-color: rgba(249, 249, 249, 0.974);
+  border-radius: 0.4rem;
+  box-shadow: 0px 0px 3px rgba(108, 101, 101, 0.974);
+  cursor: pointer;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+}
 
 
 

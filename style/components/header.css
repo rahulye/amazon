@@ -6,6 +6,7 @@
     max-width: 2400px;
     background-color: var(--clr-blue-dark);
     color: var(--clr-white);
+    padding: 0.5vw 2vw;
   }
   
   .global-header__wrapper {
@@ -16,36 +17,109 @@
     justify-content: space-between;
   }
   
+                /* left */
+
   .global-header__left{
   display: inline-block;
   }
   
   .global-header__left-home-icon-img{
-  max-width: clamp(4rem, 1vw, 9rem);
+  max-width: clamp(6rem, 5vw, 9rem);
   height: auto;
   }
-  
-  .global-header__middle {
-  display: flex;
-  justify-content: center;
-  }
-  
-  .global-header__middle-btn {
-  background-color: var(--clr-orange-light);
-  }
 
+                /* middle */
+
+  .global-header__middle {
+    display: none;
+  }
+  
   .global-header__right{
     display: none;
   }
+  
+                /* right */
+
+  .global-header__right-return {
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .global-header__right-line1 {
+    font-size: clamp(0.8rem, 1vw, 0.95rem);
+  }
+
+  .global-header__right-line2 {
+    font-size: clamp(1rem, 1vw, 1.1rem);
+  }
+
+  .global-header__right-cart {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .global-header__right-cart-icon {
+    max-width: clamp(2.5rem, 1vw, 3rem);
+    height: auto;
+  }
+
+  .global-header__right-cart-count {
+    position: absolute;
+    top: 0.1rem;
+    left: 1.2rem;
+    font-size: clamp(0.1rem, 1vw, 0.2rem);
+  }
+
+  .global-header__right-cart-text {
+    margin-left: 0.2rem;
+  }
+
+
+  .global-header__right-cart-count, .global-header__right-cart-text {
+    font-size: clamp(1rem, 1vw, 1.1rem);
+  }
+  
 }
+
+
 
 
 /* xxs
 @media (min-width: 375px) {
 } */
 
-/* xs
-@media (min-width: 475px) {} */
+/*xs */
+/* @media (min-width: 475px){}   --actually i changed for this*/
+
+@media (min-width: 200px) {
+  
+  .global-header__middle {
+  display: flex;
+  justify-content: center;
+  }
+
+  .global-header__middle-input {
+    margin-right: -0.4rem;
+  }
+  
+  .global-header__middle-btn {
+  background-color: var(--clr-orange-light);
+  border-top-right-radius: 10%;
+  border-bottom-right-radius: 10%;
+  padding: 0rem 0.35rem;
+ }
+
+  .global-header__middle-search-icon-img {
+    max-width: clamp(2rem, 1vw, 3rem);
+    height: auto;
+    display: flex;
+    object-fit: cover;
+    object-position: center;
+  }
+
+}
 
 
 /* sm */
@@ -63,7 +137,6 @@
   .global-header__right-return {
   display:inherit;
   }
-
 
 } 
 
