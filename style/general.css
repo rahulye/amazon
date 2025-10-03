@@ -61,6 +61,11 @@ section {
 h1,h2,h3,h4 {
   font-weight: 600;
   display: block;
+  width: 100%;
+}
+
+span {
+  display: block;
 }
 
 img {
