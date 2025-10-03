@@ -6,13 +6,6 @@
   margin-right: auto;
 }
 
-  /* select */
-
-select:hover {
-
-}
-
-
 
 /* xxs */
 @media (min-width: 375px) {
@@ -66,3 +59,5 @@ select:hover {
     max-width: 1536px;
   }
 }
+
+
