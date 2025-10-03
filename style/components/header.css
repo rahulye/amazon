@@ -25,6 +25,7 @@
   }
   
   .global-header__left-home-icon-img{
+    
   max-width: clamp(6rem, 5vw, 9rem);
   height: auto;
   }
