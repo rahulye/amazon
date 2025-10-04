@@ -16,7 +16,7 @@
   .checkout-cart-container {
     font-size: clamp(0.6rem, 1.5vw, 1.125rem); 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     border: 1px solid black;
 
   }
@@ -67,7 +67,13 @@
   }
 
 
+  /* right-section */
 
+  .checkout-cart-container__right-order-summary-cont {
+    display: flex;
+    border: 1px solid brown;
+    flex-direction: column;
+  }
 
 
 }
