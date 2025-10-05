@@ -16,15 +16,23 @@
   .checkout-cart-container {
     font-size: clamp(0.6rem, 1.5vw, 1.125rem); 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     border: 1px solid black;
 
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: clamp(0.6rem, 1vw, 0.8rem);
   }
 
   .checkout-cart-container__left-wrapper {
     display: flex;
     border: 1px solid gold;
     flex-direction: column;
+    justify-content: space-between;
+    flex: 2;
   }
 
   .checkout-cart-container__left-cart-nd-delvery-cont {
@@ -46,13 +54,19 @@
   .checkout-cart-container__left-delivery {
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
+    margin-right: clamp(1rem, 5vw, 5rem);
+  }
+
+  .checkout-cart-container__left-delivery-heading {
+    padding-right: 2rem;
   }
 
   .checkout-cart-container__left-delivery form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: flex-start ;
     gap: 0.5rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -73,8 +87,26 @@
     display: flex;
     border: 1px solid brown;
     flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    flex: 1;
   }
 
+  .checkout__right-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .checkout__right-wrapper ol {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .checkout__right-wrapper ol li {
+    display: flex;
+    justify-content: space-between;
+  }
 
 }
 
