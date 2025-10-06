@@ -59,7 +59,7 @@
   .checkout-cart-container__left-cart-details {
     display: flex;
     flex-direction: column;
-    gap: clamp(1.5rem, 1vw, 5rem);
+    gap: clamp(0.8rem, 1vw, 5rem);
   }
 
 
@@ -85,7 +85,7 @@
 
   .checkout-cart-container__left-quant-upt-del {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.3rem;
     flex-direction: column;
   }
 
