@@ -7,9 +7,12 @@
   --clr-orange : #f08804;
   --clr-orange-light : #ffa500;
   --clr-white :  #ffffff;
-  --clr-grey : #a7a3a3;
+  --clr-grey : #6b6363;
+  --clr-grey-light : #6b63633f;
   --clr-yellow : #ffd814;
   --clr-light-blue : #007185;
+  --clr-green: #007600;
+  --clr-red-dark: #b12704;
 
 
   /* text-sizes */
@@ -37,6 +40,7 @@
   padding: 0;
   font-size: 1rem;
   line-height: calc(1em + 0.5rem);
+  box-sizing: border-box;
 }
 
 html {

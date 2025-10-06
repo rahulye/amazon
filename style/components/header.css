@@ -5,7 +5,6 @@
     background-color: var(--clr-blue-dark);
     color: var(--clr-white);
     padding: 0.5vw 2vw;
-    border: 1px solid green;
   
   }
   
@@ -25,7 +24,7 @@
   }
   
   .global-header__left-home-icon-img{
-    
+
   max-width: clamp(6rem, 5vw, 9rem);
   height: auto;
   }
