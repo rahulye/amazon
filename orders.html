@@ -16,7 +16,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
   
-  
   <link rel="stylesheet" href="style/general.css" type="text/css">
   <link rel="stylesheet" href="style/utils.css" type="text/css">
   <link rel="stylesheet" href="style/components/header.css" type="text/css">
@@ -61,33 +60,57 @@
 
                           <!-- main -->
 
-  <main class="order-container container"> 
+  <main class="hero-section-order container"> 
     
-    <h1>Your Orders</h1>
+    <h1 class="hero-section-order__heading-txt">Your Orders</h1>
 
-    <article>
+    <article class="order__wrapper">
 
-      <section>
-
-      </section>
-      
-      <section>
-        <section>
-
-          <div>
-            
+            <!-- left section -->
+      <section class="order__place-tot-id-section">
+        <div class="order__placed-date">
+          <span class="order__placed-txt">Order Placed:</span>
+          <span>October 4</span>
+        </div>
+        <div class="order__price">
+          <span class="order__total-txt">Total:</span>
+          <span>$51.58</span>
+        </div>
+        <div class="order__ID-wrapper">
+          <div class="order__ID">
+            <span class="order__ID-txt">Order ID:</span>
+            <span>5874d89e-2e00-72ba-5bb7-9900af021636</span>
           </div>
-
-        </section>
-
-        <section>
-
-        </section>
+        </div>
       </section>
 
+      <section class="order__product-details-section">
+        <div class="order__product-section">
+          <div class="order__product-image-cont">
+            <img class="order__product-card-image" src="images/main/product-image/athletic-cotton-socks-6-pairs.jpg" alt="Product-Image">
+          </div>
+          
+          <div class="order__product-details">
+            <h3>Intermediate Size Basketball</h3>
+            <span>Arriving on: October 8</span>
+            <span>Quantity: 2</span>
+            <button class="order__product-details-btn">
+              <img class="order__product-details-btn-icon" src="images/order/buy-again-btn.png" alt="buy again icon">
+              Buy it again
+            </button>
+          </div>
+        </div>
+
+            <!-- right section -->
+
+        <div class="order__track-pckg-wrapper">
+          <div class="order__track-pckg">
+            <button class="order__track-pckg-button">Track package</button>
+          </div>
+        </div>
+      </section>
     </article>
 
   </main>
-  
 </body>
 </html>
