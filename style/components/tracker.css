@@ -1,0 +1,60 @@
+                                          /*----MAIN---- */
+.hero-section-tracker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: clamp(1rem, 1vw, 2rem);
+}
+
+.tracker__order-hyperlink {
+  font-size: clamp(0.7rem, 1vw, 0.9rem);
+  color: var(--clr-light-blue);
+  text-decoration: underline;
+}
+
+                    /* hero section */
+
+.tracker__product-card {
+  display: flex;
+  flex-direction: column;
+}                    
+
+.tracker__product-name, .tracker__product-quantity {
+  font-size: clamp(0.75rem, 1vw, 0.8rem);
+}
+
+.tracker__product-order-date {
+  margin-top: clamp(1rem, 1vw, 1rem);
+  margin-bottom: clamp(0.3rem, 1vw, 0.4rem);
+  font-size: clamp(1rem, 1vw, 1.2rem);
+  font-weight: 600;
+}            
+
+.tracker__product-image-cont {
+  margin: clamp(0.8rem, 1vw, 1rem);
+}
+
+.tracker__product-image {
+  max-width: clamp(9rem, 5vw, 10rem);
+  height: auto;                                          
+}                   
+
+.tracker__product-progress-cont {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: clamp(0.3rem, 1vw, 0.5rem);
+}
+
+.tracker__product-progress-flow-cont{
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.tracker__product-progress-cont span {
+  font-size: clamp(0.8rem, 1vw, 1rem);
+}
+
+.tracker__product-progress-flows {
+  background-color: var(--clr-green-light);
+  height: 0.5rem;
+}

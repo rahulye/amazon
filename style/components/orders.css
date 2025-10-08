@@ -4,7 +4,6 @@
 .hero-section-order__heading-txt {
   margin: clamp(1rem, 1vw, 2rem);
   font-size: clamp(1.3rem, 1vw, 1.5rem);
-  
 }
 
 .order__wrapper {
@@ -15,7 +14,9 @@
   overflow: hidden;
 }
 
-                                      /* product-card */                                
+                                      /* product-card */ 
+                                      
+                                      /* hero section */
   
                     /* left section */
 .order__place-tot-id-section {
@@ -119,11 +120,6 @@
   width: clamp(14rem, 10vw, 15rem);
 }
 
-
-                  
-
-
-                    /* hero section */
                     
 /* xs */
 /* @media (min-width: 475px) {} */
