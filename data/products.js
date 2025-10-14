@@ -1,66 +1,5 @@
 const products = [
   {
-    id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
-    image: "images/main/product-image/athletic-cotton-socks-6-pairs.jpg",
-    name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
-    rating: {
-      stars: 4.5,
-      count: 87
-    },
-    priceCents: 1090,
-    keywords: [
-      "socks",
-      "sports",
-      "apparel"
-    ]
-  },
-  {
-    id: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
-    image: "images/main/product-image/intermediate-composite-basketball.jpg",
-    name: "Intermediate Size Basketball",
-    rating: {
-      stars: 4,
-      count: 127
-    },
-    priceCents: 2095,
-    keywords: [
-      "sports",
-      "basketballs"
-    ]
-  },
-  {
-    id: "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
-    image: "images/main/product-image/adults-plain-cotton-tshirt-2-pack-teal.jpg",
-    name: "Adults Plain Cotton T-Shirt - 2 Pack",
-    rating: {
-      stars: 4.5,
-      count: 56
-    },
-    priceCents: 799,
-    keywords: [
-      "tshirts",
-      "apparel",
-      "mens"
-    ],
-    type: "clothing",
-    sizeChartLink: "images/clothing-size-chart.png"
-  },
-  {
-    id: "54e0eccd-8f36-462b-b68a-8182611d9add",
-    image: "images/main/product-image/black-2-slot-toaster.jpg",
-    name: "2 Slot Toaster - Black",
-    rating: {
-      stars: 5,
-      count: 2197
-    },
-    priceCents: 1899,
-    keywords: [
-      "toaster",
-      "kitchen",
-      "appliances"
-    ]
-  },
-  {
     id: "3ebe75dc-64d2-4137-8860-1f5a963e534b",
     image: "images/main/product-image/6-piece-white-dinner-plate-set.jpg",
     name: "6 Piece White Dinner Plate Set",
@@ -105,52 +44,6 @@ const products = [
     ]
   },
   {
-    id: "77919bbe-0e56-475b-adde-4f24dfed3a04",
-    image: "images/main/product-image/luxury-tower-set-6-piece.jpg",
-    name: "Luxury Towel Set - Graphite Gray",
-    rating: {
-      stars: 4.5,
-      count: 144
-    },
-    priceCents: 3599,
-    keywords: [
-      "bathroom",
-      "washroom",
-      "restroom",
-      "towels",
-      "bath towels"
-    ]
-  },
-  {
-    id: "3fdfe8d6-9a15-4979-b459-585b0d0545b9",
-    image: "images/main/product-image/liquid-laundry-detergent-plain.jpg",
-    name: "Liquid Laundry Detergent, 110 Loads, 82.5 Fl Oz",
-    rating: {
-      stars: 4.5,
-      count: 305
-    },
-    priceCents: 2899,
-    keywords: [
-      "bathroom",
-      "cleaning"
-    ]
-  },
-  {
-    id: "58b4fc92-e98c-42aa-8c55-b6b79996769a",
-    image: "images/main/product-image/knit-athletic-sneakers-gray.jpg",
-    name: "Waterproof Knit Athletic Sneakers - Gray",
-    rating: {
-      stars: 4,
-      count: 89
-    },
-    priceCents: 3390,
-    keywords: [
-      "shoes",
-      "running shoes",
-      "footwear"
-    ]
-  },
-  {
     id: "5968897c-4d27-4872-89f6-5bcb052746d7",
     image: "images/main/product-image/women-chiffon-beachwear-coverup-black.jpg",
     name: "Women's Chiffon Beachwear Cover Up - Black",
@@ -168,6 +61,21 @@ const products = [
     ],
     type: "clothing",
     sizeChartLink: "images/clothing-size-chart.png"
+  },
+  {
+    id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+    image: "images/main/product-image/athletic-cotton-socks-6-pairs.jpg",
+    name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
+    rating: {
+      stars: 4.5,
+      count: 87
+    },
+    priceCents: 1090,
+    keywords: [
+      "socks",
+      "sports",
+      "apparel"
+    ]
   },
   {
     id: "aad29d11-ea98-41ee-9285-b916638cac4a",
@@ -198,6 +106,35 @@ const products = [
       "womens",
       "beach",
       "summer"
+    ]
+  },
+  {
+    id: "3fdfe8d6-9a15-4979-b459-585b0d0545b9",
+    image: "images/main/product-image/liquid-laundry-detergent-plain.jpg",
+    name: "Liquid Laundry Detergent, 110 Loads, 82.5 Fl Oz",
+    rating: {
+      stars: 4.5,
+      count: 305
+    },
+    priceCents: 2899,
+    keywords: [
+      "bathroom",
+      "cleaning"
+    ]
+  },
+  {
+    id: "58b4fc92-e98c-42aa-8c55-b6b79996769a",
+    image: "images/main/product-image/knit-athletic-sneakers-gray.jpg",
+    name: "Waterproof Knit Athletic Sneakers - Gray",
+    rating: {
+      stars: 4,
+      count: 89
+    },
+    priceCents: 3390,
+    keywords: [
+      "shoes",
+      "running shoes",
+      "footwear"
     ]
   },
   {
@@ -243,54 +180,6 @@ const products = [
       "water boiler",
       "appliances",
       "kitchen"
-    ]
-  },
-  {
-    id: "6b07d4e7-f540-454e-8a1e-363f25dbae7d",
-    image: "images/main/product-image/facial-tissue-2-ply-18-boxes.jpg",
-    name: "Ultra Soft Tissue 2-Ply - 18 Box",
-    rating: {
-      stars: 4,
-      count: 99
-    },
-    priceCents: 2374,
-    keywords: [
-      "kleenex",
-      "tissues",
-      "kitchen",
-      "tissues box",
-      "napkins"
-    ]
-  },
-  {
-    id: "a82c6bac-3067-4e68-a5ba-d827ac0be010",
-    image: "images/main/product-image/straw-sunhat.webp",
-    name: "Straw Lifeguard Sun Hat",
-    rating: {
-      stars: 4,
-      count: 215
-    },
-    priceCents: 2200,
-    keywords: [
-      "hats",
-      "straw hats",
-      "summer",
-      "apparel"
-    ]
-  },
-  {
-    id: "e4f64a65-1377-42bc-89a5-e572d19252e2",
-    image: "images/main/product-image/sky-flower-stud-earrings.webp",
-    name: "Sterling Silver Sky Flower Stud Earrings",
-    rating: {
-      stars: 4.5,
-      count: 52
-    },
-    priceCents: 1799,
-    keywords: [
-      "jewelry",
-      "accessories",
-      "womens"
     ]
   },
   {
@@ -341,6 +230,117 @@ const products = [
       "flats",
       "womens",
       "footwear"
+    ]
+  },
+  {
+    id: "77919bbe-0e56-475b-adde-4f24dfed3a04",
+    image: "images/main/product-image/luxury-tower-set-6-piece.jpg",
+    name: "Luxury Towel Set - Graphite Gray",
+    rating: {
+      stars: 4.5,
+      count: 144
+    },
+    priceCents: 3599,
+    keywords: [
+      "bathroom",
+      "washroom",
+      "restroom",
+      "towels",
+      "bath towels"
+    ]
+  },
+  {
+    id: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
+    image: "images/main/product-image/intermediate-composite-basketball.jpg",
+    name: "Intermediate Size Basketball",
+    rating: {
+      stars: 4,
+      count: 127
+    },
+    priceCents: 2095,
+    keywords: [
+      "sports",
+      "basketballs"
+    ]
+  },
+  {
+    id: "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
+    image: "images/main/product-image/adults-plain-cotton-tshirt-2-pack-teal.jpg",
+    name: "Adults Plain Cotton T-Shirt - 2 Pack",
+    rating: {
+      stars: 4.5,
+      count: 56
+    },
+    priceCents: 799,
+    keywords: [
+      "tshirts",
+      "apparel",
+      "mens"
+    ],
+    type: "clothing",
+    sizeChartLink: "images/clothing-size-chart.png"
+  },
+  {
+    id: "54e0eccd-8f36-462b-b68a-8182611d9add",
+    image: "images/main/product-image/black-2-slot-toaster.jpg",
+    name: "2 Slot Toaster - Black",
+    rating: {
+      stars: 5,
+      count: 2197
+    },
+    priceCents: 1899,
+    keywords: [
+      "toaster",
+      "kitchen",
+      "appliances"
+    ]
+  },
+  {
+    id: "6b07d4e7-f540-454e-8a1e-363f25dbae7d",
+    image: "images/main/product-image/facial-tissue-2-ply-18-boxes.jpg",
+    name: "Ultra Soft Tissue 2-Ply - 18 Box",
+    rating: {
+      stars: 4,
+      count: 99
+    },
+    priceCents: 2374,
+    keywords: [
+      "kleenex",
+      "tissues",
+      "kitchen",
+      "tissues box",
+      "napkins"
+    ]
+  },
+  {
+    id: "a82c6bac-3067-4e68-a5ba-d827ac0be010",
+    image: "images/main/product-image/straw-sunhat.webp",
+    name: "Straw Lifeguard Sun Hat",
+    rating: {
+      stars: 4,
+      count: 215
+    },
+    priceCents: 2200,
+    keywords: [
+      "hats",
+      "straw hats",
+      "summer",
+      "apparel"
+    ]
+  },
+  {
+    id: "e4f64a65-1377-42bc-89a5-e572d19252e2",
+    image: "images/main/product-image/sky-flower-stud-earrings.webp",
+    name: "Sterling Silver Sky Flower Stud Earrings",
+    rating: {
+      stars: 4.5,
+      count: 52
+    },
+    priceCents: 1799,
+    keywords: [
+      "jewelry",
+      "accessories",
+      "womens"
     ]
   },
   {
@@ -428,6 +428,22 @@ const products = [
     ]
   },
   {
+    id: "bc2847e9-5323-403f-b7cf-57fde044a955",
+    image: "images/main/product-image/men-cozy-fleece-zip-up-hoodie-red.jpg",
+    name: "Men's Full-Zip Hooded Fleece Sweatshirt",
+    rating: {
+      stars: 4.5,
+      count: 3157
+    },
+    priceCents: 2400,
+    keywords: [
+      "sweaters",
+      "hoodies",
+      "apparel",
+      "mens"
+    ]
+  },
+  {
     id: "1c079479-8586-494f-ab53-219325432536",
     image: "images/main/product-image/men-athletic-shoes-green.jpg",
     name: "Men's Athletic Sneaker",
@@ -504,6 +520,23 @@ const products = [
       "jogging",
       "apparel",
       "womens"
+    ]
+  },
+  {
+    id: "bc2847e9-5323-403f-b7cf-57fde044A1055",
+    image: "images/main/product-image/variations/adults-plain-cotton-tshirt-2-pack-black.jpg",
+    name: "Men's Plain Cotton T-Shirt (2 packs)",
+    rating: {
+      stars: 4,
+      count: 567
+    },
+    priceCents: 2900,
+    keywords: [
+      "sweaters",
+      "shirt",
+      "hoodies",
+      "apparel",
+      "mens"
     ]
   },
   {
@@ -611,6 +644,23 @@ const products = [
     ]
   },
   {
+    id: "bc2847e9-5323-403f-b7cf-57fde044B955",
+    image: "images/main/product-image/variations/men-golf-polo-t-shirt-red.jpg",
+    name: "Men's Golf Polo T-Shirt",
+    rating: {
+      stars: 4.5,
+      count: 127
+    },
+    priceCents: 2199,
+    keywords: [
+      "sweaters",
+      "hoodies",
+      "apparel",
+      "mens",
+      "Shirt"
+    ]
+  },
+  {
     id: "36c64692-677f-4f58-b5ec-0dc2cf109e27",
     image: "images/main/product-image/floral-mixing-bowl-set.jpg",
     name: "10-Piece Mixing Bowl Set with Lids - Floral",
@@ -641,20 +691,4 @@ const products = [
       "tissues"
     ]
   },
-  {
-    id: "bc2847e9-5323-403f-b7cf-57fde044a955",
-    image: "images/main/product-image/men-cozy-fleece-zip-up-hoodie-red.jpg",
-    name: "Men's Full-Zip Hooded Fleece Sweatshirt",
-    rating: {
-      stars: 4.5,
-      count: 3157
-    },
-    priceCents: 2400,
-    keywords: [
-      "sweaters",
-      "hoodies",
-      "apparel",
-      "mens"
-    ]
-  }
 ];

@@ -62,15 +62,15 @@
   }
   
   .global-header__right-cart-icon {
-    max-width: clamp(2.5rem, 1vw, 3rem);
+    max-width: clamp(3rem, 1vw, 3rem);
     height: auto;
   }
   
   .global-header__right-cart-count {
     position: absolute;
-    top: 0.1rem;
-    left: 1.2rem;
-    font-size: clamp(0.1rem, 1vw, 0.2rem);
+    top: 0rem;
+    left: 1.4rem;
+    font-size: clamp(0.1rem, 1vw, 0.1rem);
     color: var(--clr-orange);
   }
   
@@ -78,8 +78,13 @@
     margin-left: 0.2rem;
   }
   
-  
-  .global-header__right-cart-count, .global-header__right-cart-text {
+  .global-header__right-cart-count {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+
+  .global-header__right-cart-text {
     font-size: clamp(1rem, 1vw, 1.1rem);
   }
 }
