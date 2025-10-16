@@ -1,4 +1,4 @@
-const products = [
+export const products = [
   {
     id: "3ebe75dc-64d2-4137-8860-1f5a963e534b",
     image: "images/main/product-image/6-piece-white-dinner-plate-set.jpg",

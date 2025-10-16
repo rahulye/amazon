@@ -1,3 +1,6 @@
+import {cart, addToCart} from '../data/cart.js';
+import {products} from '../data/products.js';
+
 let productsHTML = '';
 
 products.forEach( (product) => {
@@ -38,7 +41,7 @@ products.forEach( (product) => {
         <button class="hero-section__product-card-add-btn js-product-card-add-btn" data-product-id = "${product.id}">Add to Cart</button>
       
       </article>
-  `
+  `;
 });
 
 document.querySelector('.js-hero-section__wrapper').innerHTML = productsHTML;
@@ -50,59 +53,49 @@ document.querySelectorAll('.js-product-card-add-btn').forEach( (button) => {
   button.addEventListener( 'click' , () => {
 
     const {productId} = button.dataset;   //const productId = button.dataset.productId;
+    addToCart(productId);
+    updateCart();
 
-    /*--------product added already ?-------*/
-    let matchedItem;
-        // check cart, if doesnt have assign the variable matched 
-    cart.forEach( (item) => {
-      if(productId === item.productId) {
-        matchedItem = item;
-      }
-    });
-        /*----- based on cart quantity <select> ------*/
-    const selectorElement = document.querySelector(`.js-product-quantity-selector-${productId}`);
-    const quantity = Number(selectorElement.value);   
-            // this is new quantity why same name cuz we will add this in end to display in cart quantity so we have to have same name
-
-        // if matchede as valye in if(matchedItem) becomes truthy so quantity increases by 1
-    if(matchedItem) {
-      matchedItem.quantity += quantity;
-    } else {
-      cart.push({
-        productId,            //productId: productId,
-        quantity              //quantity: quantity
-      });
-    }
-
-    /* add total cart quantity */
-    let cartQuantity = 0;
-    cart.forEach( (item) => {
-      cartQuantity += item.quantity; 
-    });
-    document.querySelector('.js-cart-count').innerHTML = cartQuantity;
-    
-    console.log(cartQuantity);
-    console.log(cart);
-
-
-    /*----added message and also checks if the id arlready exist in the timeout object if it is we clear the timeout */
-    const addedElement = document.querySelector(`.js-product-added-${productId}`);
-
-    // if(addedMessageTimeout[productId]) {
-    //   clearTimeout(addedMessageTimeout[productId]);
-    // }
-    
-    addedElement.classList.add('product-added-visible');
-    /*const setTimeoutID = */   setTimeout(() => {
-        addedElement.classList.remove('product-added-visible');
-       }, 2000);
-    // addedMessageTimeout[productId] = setTimeoutID;
   });    
 });
 
 
+/* add total cart quantity */
 
-// code without comments
+function updateCart() {
+  let cartQuantity = 0;
+  cart.forEach( (item) => {
+    cartQuantity += item.quantity; 
+  });
+  document.querySelector('.js-cart-count').innerHTML = cartQuantity;
+  
+  console.log(cartQuantity);
+  console.log(cart);
+
+  /*----added message and also checks if the id arlready exist in the timeout object if it is we clear the timeout */
+  const addedElement = document.querySelector(`.js-product-added-${productId}`);
+
+  // if(addedMessageTimeout[productId]) {
+  //   clearTimeout(addedMessageTimeout[productId]);
+  // }
+  
+  addedElement.classList.add('product-added-visible');
+  /*const setTimeoutID = */   setTimeout(() => {
+      addedElement.classList.remove('product-added-visible');
+    }, 2000);
+  
+  // addedMessageTimeout[productId] = setTimeoutID;
+};
+
+
+
+
+
+
+
+
+
+// code without comments of both add to cart and update cart 
 
 // 
 
