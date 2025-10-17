@@ -1,5 +1,6 @@
 import {cart} from '../data/cart.js';
 import {products} from '../data/products.js';
+import { formatCurrency } from './utils/money.js';
 
 let checkoutHTML = '';
 
@@ -27,11 +28,11 @@ cart.forEach( (cartItem) => {
           </div>
           <div class="checkout-cart-container__left-abt-product">
             <span class="checkout-cart-container__left-abt-product-text">${matchedProduct.name}</span>
-            <span class="checkout-cart-container__left-abt-product-price-text">${(matchedProduct.priceCents / 100).toFixed(2)}</span>
+            <span class="checkout-cart-container__left-abt-product-price-text">${formatCurrency(matchedProduct.priceCents)}</span>
             <div class="checkout-cart-container__left-quant-upt-del">
               <span>Quantity: ${cartItem.quantity}</span>
               <span class="upt">Update</span>
-              <span class="del">Delete</span>
+              <span class="del js-delete-link">Delete</span>
             </div>
           </div>
         </section>
@@ -40,21 +41,21 @@ cart.forEach( (cartItem) => {
           <div class="checkout-cart-container__left-delivery-heading">Choose a delivery option:</div>
           <form>
             <label>
-              <input type="radio" name="Shipping">
+              <input type="radio" name="delivery-option-${matchedProduct.id}">
               <div>
                 <span class="date">Tuesday, October 14</span>
                 <span class="note">FREE Shipping</span>
               </div>
             </label>
             <label>
-              <input type="radio" name="Shipping">
+              <input type="radio" name="delivery-option-${matchedProduct.id}">
               <div>
                 <span class="date">Wednesday, October 8</span>
                 <span class="note">$4.99 - Shipping</span>
               </div>
             </label>
             <label>
-              <input type="radio" name="Shipping">
+              <input type="radio" name="delivery-option-${matchedProduct.id}">
               <div>
                 <span class="date">Monday, October 6</span>
                 <span class="note">$9.99 - Shipping</span>
@@ -71,3 +72,9 @@ cart.forEach( (cartItem) => {
 });
 
 document.querySelector('.js-checkout-cart-container__left-wrapper').innerHTML = checkoutHTML;
+
+document.querySelectorAll('.js-delete-link').forEach( (link) => {
+  link.addEventListener('click', () => {
+    console.log('delete');
+  });
+});
