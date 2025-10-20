@@ -55,7 +55,7 @@ document.querySelectorAll('.js-product-card-add-btn').forEach( (button) => {
 
     const {productId} = button.dataset;   //const productId = button.dataset.productId;
     addToCart(productId);
-    updateCart();
+    updateCart(productId);
 
   });    
 });
@@ -63,16 +63,13 @@ document.querySelectorAll('.js-product-card-add-btn').forEach( (button) => {
 
 /* add total cart quantity */
 
-function updateCart() {
+function updateCart(productId) {
   let cartQuantity = 0;
   cart.forEach( (item) => {
     cartQuantity += item.quantity; 
   });
   document.querySelector('.js-cart-count').innerHTML = cartQuantity;
   
-  console.log(cartQuantity);
-  console.log(cart);
-
   /*----added message and also checks if the id arlready exist in the timeout object if it is we clear the timeout */
   const addedElement = document.querySelector(`.js-product-added-${productId}`);
 

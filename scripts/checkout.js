@@ -1,5 +1,5 @@
-import {cart} from '../data/cart.js';
-import {products} from '../data/products.js';
+import { cart, deleteCart } from '../data/cart.js';
+import { products } from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 
 let checkoutHTML = '';
@@ -17,7 +17,7 @@ cart.forEach( (cartItem) => {
 
   checkoutHTML += `
    
-    <div class="checkout-cart-container__product-wrapper js-checkout-cart-container__product-wrapper">
+    <div class="checkout-cart-container__product-wrapper js-product-wrapper-container-${matchedProduct.id}">
       
       <!----------- left section ---------->
       <h3 class="checkout-cart-container__left-heading">Delivery date: Wednesday, October 8</h3>
@@ -32,7 +32,7 @@ cart.forEach( (cartItem) => {
             <div class="checkout-cart-container__left-quant-upt-del">
               <span>Quantity: ${cartItem.quantity}</span>
               <span class="upt">Update</span>
-              <span class="del js-delete-link">Delete</span>
+              <span class="del js-delete-link" data-product-id = "${matchedProduct.id}" >Delete</span>
             </div>
           </div>
         </section>
@@ -75,6 +75,15 @@ document.querySelector('.js-checkout-cart-container__left-wrapper').innerHTML = 
 
 document.querySelectorAll('.js-delete-link').forEach( (link) => {
   link.addEventListener('click', () => {
-    console.log('delete');
+    const {productId} = link.dataset;  // const productId = link.dataset.productId; 
+
+    //delete it
+    deleteCart(productId);
+
+    //update in HTML
+    const containerElement =  document.querySelector(`.js-product-wrapper-container-${productId}`);
+    containerElement.remove();
+
+
   });
 });

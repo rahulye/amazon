@@ -1,14 +1,20 @@
-export const cart = [
-  {
-    productId : '15b6fc6f-327a-4ec4-896f-486349e85a3d',
-    quantity : 2 
-  },
-  {
-    productId : '3ebe75dc-64d2-4137-8860-1f5a963e534b',
-    quantity : 1 
-  },
+export let cart = JSON.parse(localStorage.getItem('cart')); 
 
-];
+
+if(!cart) {
+  cart = [
+    {
+      productId : '15b6fc6f-327a-4ec4-896f-486349e85a3d',
+      quantity : 2 
+    },
+    {
+      productId : '3ebe75dc-64d2-4137-8860-1f5a963e534b',
+      quantity : 1 
+    }];
+}; 
+
+
+// amazon.js
 
 /*--------product added already ?-------*/
 
@@ -34,4 +40,33 @@ export function addToCart(productId) {
       quantity              //quantity: quantity
     });
   }
+
+  saveToStorage();
+};
+
+
+
+
+// checkout.js
+
+export function deleteCart(productId) {
+
+  const newCart = [];
+  
+  cart.forEach( (cartItem) => { 
+    if(cartItem.productId !== productId) {
+      newCart.push(cartItem);
+    };
+  });
+  cart = newCart;
+
+  saveToStorage();
+}
+
+
+
+// localStorage
+
+function saveToStorage() {
+  localStorage.setItem( 'cart' , JSON.stringify(cart));
 };
