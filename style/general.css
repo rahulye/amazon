@@ -104,15 +104,10 @@ form{
 }
 
 input {
-  flex: 1;
-  width: 100%;
-  max-width: 900px;
-  display: inline-block;
-  padding: 0.5rem 0.9rem;
-  font-size: clamp(0.8rem, 1vw, 1rem);  /*10px to 16px */
-  outline: none;
-  box-sizing: border-box;  
-  border-radius: 0.2rem;
+    box-sizing: border-box;  
+    border-radius: 0.2rem;
+    outline: none;
+ 
 }
 
 select {

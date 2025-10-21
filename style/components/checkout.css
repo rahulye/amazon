@@ -56,7 +56,6 @@
     padding: 0.5rem;
     font-size: clamp(1rem, 1vw, 1.1rem);
 
-
   }
 
   .checkout-cart-container__left-cart-nd-delvery-cont {
@@ -98,10 +97,13 @@
     flex-direction: column;
   }
 
-  .checkout-cart-container__left-quant-upt-del .upt, 
-  .checkout-cart-container__left-quant-upt-del .del  {
+  .checkout-cart-container__left-quant-upt-del .btn{
     color: var(--clr-light-blue);
     cursor: pointer;
+  }
+
+  .checkout-cart-container__left-quant-upt-del .input{
+   width: 40px;
   }
   
   .checkout-cart-container__left-delivery {

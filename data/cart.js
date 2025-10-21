@@ -13,6 +13,18 @@ if(!cart) {
     }];
 }; 
 
+// common for amazon.js, checkout.js
+
+export function totalCartQuantity() {
+  let cartQuantity = 0;
+  cart.forEach( (cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
+
+  return cartQuantity;
+};
+
+
 
 // amazon.js
 
@@ -41,6 +53,7 @@ export function addToCart(productId) {
     });
   }
 
+  totalCartQuantity();
   saveToStorage();
 };
 
@@ -52,7 +65,6 @@ export function addToCart(productId) {
 export function deleteCart(productId) {
 
   const newCart = [];
-  
   cart.forEach( (cartItem) => { 
     if(cartItem.productId !== productId) {
       newCart.push(cartItem);
@@ -60,6 +72,7 @@ export function deleteCart(productId) {
   });
   cart = newCart;
 
+  totalCartQuantity();
   saveToStorage();
 }
 
@@ -67,6 +80,7 @@ export function deleteCart(productId) {
 
 // localStorage
 
-function saveToStorage() {
+export function saveToStorage() {
   localStorage.setItem( 'cart' , JSON.stringify(cart));
+  localStorage.setItem( 'totalCartQuantity' , JSON.stringify(totalCartQuantity()));
 };

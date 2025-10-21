@@ -1,4 +1,4 @@
-import {cart, addToCart} from '../data/cart.js';
+import {cart, addToCart, totalCartQuantity} from '../data/cart.js';
 import {products} from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 
@@ -44,12 +44,14 @@ products.forEach( (product) => {
       </article>
   `;
 });
-
 document.querySelector('.js-hero-section__wrapper').innerHTML = productsHTML;
 
+//localstorage
+document.querySelector('.js-cart-count').innerHTML =  JSON.parse(localStorage.getItem('totalCartQuantity')) || 0;
 
+
+//added meesage
 // let addedMessageTimeout = {};
-
 document.querySelectorAll('.js-product-card-add-btn').forEach( (button) => {  
   button.addEventListener( 'click' , () => {
 
@@ -62,13 +64,9 @@ document.querySelectorAll('.js-product-card-add-btn').forEach( (button) => {
 
 
 /* add total cart quantity */
-
 function updateCart(productId) {
-  let cartQuantity = 0;
-  cart.forEach( (item) => {
-    cartQuantity += item.quantity; 
-  });
-  document.querySelector('.js-cart-count').innerHTML = cartQuantity;
+
+  document.querySelector('.js-cart-count').innerHTML =  JSON.parse(localStorage.getItem('totalCartQuantity')) || 0;
   
   /*----added message and also checks if the id arlready exist in the timeout object if it is we clear the timeout */
   const addedElement = document.querySelector(`.js-product-added-${productId}`);
