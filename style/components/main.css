@@ -73,6 +73,10 @@
     font-size: clamp(0.8rem, 1.5vw, 1rem);
   }
 
+  .hero-section__product-card-quantity {
+    width: 2.5rem;
+  }
+
   .hero-section__product-card-added-cont {
     display: flex;
     justify-content: flex-start;
@@ -109,9 +113,6 @@
 
   .hero-section__product-card-text{
     font-size: clamp(0.8rem, 1vw, 1rem);
-  }
-
-  .hero-section__product-card {
   }
 }
 

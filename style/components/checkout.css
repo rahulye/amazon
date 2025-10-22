@@ -102,10 +102,26 @@
     cursor: pointer;
   }
 
-  .checkout-cart-container__left-quant-upt-del .input{
-   width: 40px;
+  .checkout-cart-container__left-quant-upt-del .upt-input{
+   width: 2rem;
+   height: 1.2rem;
+   display: none;
   }
   
+  .checkout-cart-container__left-quant-upt-del .save-btn{
+   display: none;
+  }
+  
+  /* we added like this beacuse of CSS Specifity  */
+  .checkout-cart-container__left-quant-upt-del .upt-input.visible,
+  .checkout-cart-container__left-quant-upt-del .save-btn.visible {
+    display: inline-block;
+  }
+  
+  .checkout-cart-container__left-quant-upt-del .btn:hover {
+   color: var(--clr-orange);
+  }
+
   .checkout-cart-container__left-delivery {
     display: flex;
     flex-direction: column;
@@ -216,6 +232,10 @@
     flex-direction: row;
   }
 
+  .checkout-cart-container__left-quant-upt-del {
+    flex-direction: row;
+  }
+
 } 
 
 /* lg */
@@ -223,6 +243,11 @@
    .checkout-cart-container__left-cart-details {
     flex-direction: row;
   }
+
+  .checkout-cart-container__left-quant-upt-del {
+    flex-direction: column;
+  }
+
 }
 
 /* xl */
@@ -237,4 +262,8 @@
   margin: 0 auto;
   background-color: var(--clr-white);  
 }
+
+  .checkout-cart-container__left-quant-upt-del {
+    flex-direction: row;
+  }
 }
