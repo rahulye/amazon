@@ -1,17 +1,13 @@
-export let cart = JSON.parse(localStorage.getItem('cart')); 
-
-
-if(!cart) {
-  cart = [
-    {
-      productId : '15b6fc6f-327a-4ec4-896f-486349e85a3d',
-      quantity : 2 
-    },
-    {
-      productId : '3ebe75dc-64d2-4137-8860-1f5a963e534b',
-      quantity : 1 
-    }];
-}; 
+export let cart = JSON.parse(localStorage.getItem('cart') || 'null') || [
+  {
+    productId: '15b6fc6f-327a-4ec4-896f-486349e85a3d',
+    quantity: 1
+  },
+  {
+    productId: '3ebe75dc-64d2-4137-8860-1f5a963e534b',
+    quantity: 4
+  }
+];
 
 // common for amazon.js, checkout.js
 
@@ -64,13 +60,24 @@ export function addToCart(productId) {
 
 export function deleteCart(productId) {
 
-  const newCart = [];
-  cart.forEach( (cartItem) => { 
-    if(cartItem.productId !== productId) {
-      newCart.push(cartItem);
-    };
+  // const newCart = [];
+  // cart.forEach( (cartItem) => { 
+  //   if(cartItem.productId !== productId) {
+  //     newCart.push(cartItem);
+  //   };
+  // });
+  // cart = newCart;
+
+  // totalCartQuantity();
+  // saveToStorage();
+
+  const index = cart.findIndex( (item) => {
+    return item.productId === productId;   // return --> the index of the product in the cart || -1
   });
-  cart = newCart;
+
+  if(index!==-1) {
+    cart.splice(index,1);
+  };
 
   totalCartQuantity();
   saveToStorage();

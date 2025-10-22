@@ -47,7 +47,11 @@ products.forEach( (product) => {
 document.querySelector('.js-hero-section__wrapper').innerHTML = productsHTML;
 
 //localstorage
-document.querySelector('.js-cart-count').innerHTML =  JSON.parse(localStorage.getItem('totalCartQuantity')) || 0;
+// document.querySelector('.js-cart-count').innerHTML =  JSON.parse(localStorage.getItem('totalCartQuantity') || 'null') || totalCartQuantity();
+//above also works but this is straightforward and dont need to use thelocalstorage cuz we used the anove logic in cart[] we dont need to do it again in here 
+
+document.querySelector('.js-cart-count').innerHTML =  totalCartQuantity();
+
 
 
 //added meesage
@@ -66,7 +70,8 @@ document.querySelectorAll('.js-product-card-add-btn').forEach( (button) => {
 /* add total cart quantity */
 function updateCart(productId) {
 
-  document.querySelector('.js-cart-count').innerHTML =  JSON.parse(localStorage.getItem('totalCartQuantity')) || 0;
+  document.querySelector('.js-cart-count').innerHTML =  totalCartQuantity()
+  
   
   /*----added message and also checks if the id arlready exist in the timeout object if it is we clear the timeout */
   const addedElement = document.querySelector(`.js-product-added-${productId}`);

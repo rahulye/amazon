@@ -32,7 +32,7 @@
               <div class="checkout-cart-container__left-quant-upt-del" data-product-id="${matchedProduct.id}">
                 <span class="js-quant-display">Quantity: ${cartItem.quantity}</span>
                 <span class="btn js-update-link" data-product-id = "${matchedProduct.id}">Update</span>
-                <input class="upt-input js-input-upt" type="number" min=1 max=50 data-product-id="${matchedProduct.id}">
+                <input class="upt-input js-input-upt" type="number" value=${cartItem.quantity} min=1 max=50 data-product-id="${matchedProduct.id}">
                 <span class="btn save-btn js-save-upt-link" data-product-id="${matchedProduct.id}">Save</span>
                 <span class="btn js-delete-link" data-product-id="${matchedProduct.id}" >Delete</span>
               </div>
@@ -71,13 +71,16 @@
     `;
 
   });
+
+
   document.querySelector('.js-checkout-cart-container__left-wrapper').innerHTML = checkoutHTML;
 
   const totalCartQuantityElement =  document.querySelector('.js-gloabal-header__mid-cart-quantity');
-  totalCartQuantityElement.innerHTML = `${JSON.parse(localStorage.getItem('totalCartQuantity')) || totalCartQuantity()} item${totalCartQuantity() > 1 ? 's' : ''}`;
+  const cartQuantity = totalCartQuantity();
+  totalCartQuantityElement.innerHTML = `${cartQuantity} item${cartQuantity > 1 ? 's' : ''}`;
 
   
-//delete btn
+//DELETE BTN
 document.querySelectorAll('.js-delete-link').forEach( (link) => {
   link.addEventListener('click', () => {
     const {productId} = link.dataset;  // const productId = link.dataset.productId; 
@@ -95,7 +98,7 @@ document.querySelectorAll('.js-delete-link').forEach( (link) => {
   });
 });
 
-//update btn
+//UPDATE BTN
 //-> to make them visible
 document.querySelectorAll('.js-update-link').forEach( (link)=> {
   link.addEventListener( 'click' , () => {
@@ -112,10 +115,20 @@ function addInputSave(productId) {
   inputElement.classList.add('visible');
   saveElement.classList.add('visible');
 
+  const handleEnter = (event) => { 
+    if( event.key === 'Enter') {
+      saveNewQuantity(productId);
+      removeInputSave(productId);
+      inputElement.removeEventListener('keydown', handleEnter);
+    };
+  };
+
+  inputElement.addEventListener('keydown', handleEnter);   // event is automatically passed by the browser. no need to pass parameter
 };
 
-  //-> to make them save and right after invisible 
-  //to save first
+
+//-> to make them save and right after invisible 
+//to save first
 document.querySelectorAll('.js-save-upt-link').forEach( (link) => {
   link.addEventListener('click' , () => {
     const productId = link.dataset.productId;
@@ -128,11 +141,15 @@ function saveNewQuantity(productId) {
   const inputElement = document.querySelector(`.js-input-upt[data-product-id="${productId}"]`);
   const newQuantity = parseInt(inputElement.value);
 
+  if(newQuantity<=0 || newQuantity>50) {
+    alert('Quantity must be at least 1 and less than or equal to 50');
+    return;
+  };
+
   cart.forEach( (cartItem) => {
     if( productId === cartItem.productId) {
       cartItem.quantity = newQuantity;
     }
-
     const containerElement = document.querySelector(`.checkout-cart-container__left-quant-upt-del[data-product-id="${productId}"]`);
     const quantDisplayElement = containerElement.querySelector('.js-quant-display');
     quantDisplayElement.textContent = `Quantity: ${newQuantity}`;
@@ -151,7 +168,5 @@ function removeInputSave(productId) {
   saveElement.classList.remove('visible');
   inputElement.classList.remove('visible');
 };
-
-
 
 
