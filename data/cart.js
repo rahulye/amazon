@@ -1,4 +1,3 @@
-
 export let cart = JSON.parse(localStorage.getItem('cart') || 'null') || [
   {
     productId: '15b6fc6f-327a-4ec4-896f-486349e85a3d',
@@ -19,7 +18,6 @@ export function totalCartQuantity() {
   cart.forEach( (cartItem) => {
     cartQuantity += cartItem.quantity;
   });
-
   return cartQuantity;
 };
 
@@ -41,7 +39,6 @@ export function addToCart(productId) {
   const selectorElement = document.querySelector(`.js-product-quantity-selector-${productId}`);
   const quantity = Number(selectorElement.value);   
           // this is new quantity why same name cuz we will add this in end to display in cart quantity so we have to have same name
-
       // if matchede as valye in if(matchedItem) becomes truthy so quantity increases by 1
   if(matchedItem) {
     matchedItem.quantity += quantity;
@@ -52,7 +49,6 @@ export function addToCart(productId) {
       deliveryOptionsId : '2'              //quantity: quantity
     });
   }
-
   totalCartQuantity();
   saveToStorage();
 };
@@ -78,19 +74,28 @@ export function deleteCart(productId) {
   const index = cart.findIndex( (item) => {
     return item.productId === productId;   // return --> the index of the product in the cart || -1
   });
-
   if(index!==-1) {
     cart.splice(index,1);
   };
-
   totalCartQuantity();
   saveToStorage();
 }
 
+// update cart page after the delivery options selected by user
+export function updateCartPage( productId , deliveryOptionsId ) {
+  let matchedProduct;
+  cart.forEach( (cartItem) => {
+    if( cartItem.productId === productId) {
+      matchedProduct = cartItem;
+    }
+  });
+  matchedProduct.deliveryOptionsId = deliveryOptionsId;
+  saveToStorage();
+};
+
 
 
 // localStorage
-
 export function saveToStorage() {
   localStorage.setItem( 'cart' , JSON.stringify(cart));
   localStorage.setItem( 'totalCartQuantity' , JSON.stringify(totalCartQuantity()));
