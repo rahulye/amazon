@@ -1,7 +1,7 @@
 // named export - curly{}
 import { cart, deleteCart, saveToStorage, totalCartQuantity, updateCartPage } from '../../data/cart.js';
-import { products } from '../../data/products.js';
-import { deliveryOptions } from '../../data/deliveryOptions.js';
+import { getProduct } from '../../data/products.js';
+import { deliveryOptions, getDeliveryOption } from '../../data/deliveryOptions.js';
 // default export - no curly{}
 import formatCurrency from '../utils/money.js';
 
@@ -15,26 +15,22 @@ export function renderProductOrderSummary() {
   let checkoutHTML = '';
   cart.forEach( (cartItem) => {
     const productId = cartItem.productId;
-    let matchedProduct;
+    const matchedProduct = getProduct(productId);
 
     //DELIVEY DATE - we click the delivery options acccording to that date will change
-    let matchedOption;
-    deliveryOptions.forEach( (option) => {
-      if( option.id === cartItem.deliveryOptionsId) {
-        matchedOption = option;
-      };
-    });
+    const matchedOption = getDeliveryOption(cartItem);
+   
     const today = dayjs();
     const deliveryDate = today.add( matchedOption.inDeliveryDays , 'days' );  // syntax-->   dayjs().add(number, unit);
     const deliveryDateString = deliveryDate.format('dddd, MMMM DD');
 
 
     //to get the other details respect to cart 
-    products.forEach( (product) => {
-      if(product.id === productId) {
-        matchedProduct = product;
-      }
-    });
+    // products.forEach( (product) => {
+    //   if(product.id === productId) {
+    //     matchedProduct = product;
+    //   }
+    // });
 
     checkoutHTML += `
 
