@@ -2,6 +2,7 @@
 import { cart, deleteCart, saveToStorage, totalCartQuantity, updateCartPage } from '../../data/cart.js';
 import { getProduct } from '../../data/products.js';
 import { deliveryOptions, getDeliveryOption } from '../../data/deliveryOptions.js';
+import renderPaymentSummary from './paymentSummary.js';
 // default export - no curly{}
 import formatCurrency from '../utils/money.js';
 
@@ -66,7 +67,6 @@ export function renderProductOrderSummary() {
 
       </div>
     `;
-    console.log();
   });
   document.querySelector('.js-checkout-cart-container__left-wrapper').innerHTML = checkoutHTML;
 
@@ -103,7 +103,9 @@ export function renderProductOrderSummary() {
     element.addEventListener( 'click' , () => {
       const { productId , deliveryOptionsId } = element.dataset;
       updateCartPage( productId , deliveryOptionsId );
-      renderProductOrderSummary();   // ------ redering MVC ----------- //
+                            // ------ redering MVC ----------- //
+      renderProductOrderSummary();   
+      renderPaymentSummary();
     });
   });
 
@@ -124,10 +126,10 @@ export function renderProductOrderSummary() {
   //UPDATE BTN
   //-> to make them visible
   document.querySelectorAll('.js-update-link').forEach( (link)=> {
-  link.addEventListener( 'click' , () => {
-    const {productId} = link.dataset;
-    addInputSave(productId);
-  });
+    link.addEventListener( 'click' , () => {
+      const {productId} = link.dataset;
+      addInputSave(productId);
+    });
   });
   function addInputSave(productId) {
     // const saveElement = document.querySelector(`.js-save-upt-${productId}`);
@@ -153,6 +155,7 @@ export function renderProductOrderSummary() {
         const productId = link.dataset.productId;
         saveNewQuantity(productId); //1
         removeInputSave(productId); //2
+        renderPaymentSummary();
       });
   });
   function saveNewQuantity(productId) {

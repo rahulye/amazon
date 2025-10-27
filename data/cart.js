@@ -1,3 +1,5 @@
+import renderPaymentSummary from "../scripts/checkout/paymentSummary.js";
+
 export let cart = JSON.parse(localStorage.getItem('cart') || 'null') || [
   {
     productId: '15b6fc6f-327a-4ec4-896f-486349e85a3d',
@@ -78,6 +80,7 @@ export function deleteCart(productId) {
     cart.splice(index,1);
   };
   totalCartQuantity();
+  renderPaymentSummary();
   saveToStorage();
 }
 
