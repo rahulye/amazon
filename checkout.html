@@ -15,59 +15,36 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-  
   <link rel="stylesheet" href="style/general.css" type="text/css">
   <link rel="stylesheet" href="style/utils.css" type="text/css">
   <link rel="stylesheet" href="style/components/header.css" type="text/css">
   <link rel="stylesheet" href="style/components/checkout.css" type="text/css">
-  
 
 </head>
 <body class="checkout">
 
                         <!-- header -->
                           
-  <header class="global-header container">
-
-    <nav class="global-header__wrapper">
-
-      <section class="global-header__left">
-        <a href="index.html">
-          <img class="global-header__left-home-icon-img" src="images/checkout/icons/amazon-logo.png" alt="Amazon logo">
-        </a>
-      </section>
-
-      <section class="global-header__middle">
-        <span class="global-header__middle-text">Checkout ( <span class="global-header__middle-highlight-text js-gloabal-header__mid-cart-quantity"></span> )</span>
-      </section>
-      
-      <section class="global-header__right">
-      </section>
-
-    </nav>
+  <header class="global-header container js-header">
   </header>
 
                           <!-- main -->
 
   <main class="checkout-cart-container container"> 
-    
+    <h2 class="checkout-cart-container__heading">Review your order</h2>
 
-      <h2 class="checkout-cart-container__heading">Review your order</h2>
-
-    
-     <!-- main section -->
-    
+    <!-- main section -->
      <section class="checkout-cart__delivery-wrapper">
-       <section class="checkout-cart-container__left-wrapper js-checkout-cart-container__left-wrapper">
-          <!-- left section -->
-           
-        </section>
+    
+       <!-- left section -->
+      <section class="checkout-cart-container__left-wrapper js-checkout-cart-container__left-wrapper">
+      </section>
 
-        <!-- right section -->
-        <section class="checkout-cart-container__right-order-summary-cont js-order-summary">
-        <section>
-     </section>
-
+      <!-- right section -->
+      <section class="checkout-cart-container__right-order-summary-cont js-order-summary">
+      <section>
+     
+    </section>
   </main>
   
   <script type="module" src="./scripts/checkout.js"></script>

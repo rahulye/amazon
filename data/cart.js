@@ -13,7 +13,7 @@ export let cart = JSON.parse(localStorage.getItem('cart') || 'null') || [
   }
 ];
 
-// common for amazon.js, checkout.js
+// common for amazon.js, checkout.js, paymentSummary.js
 
 export function totalCartQuantity() {
   let cartQuantity = 0;

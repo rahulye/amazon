@@ -2,6 +2,7 @@
 import { cart, deleteCart, saveToStorage, totalCartQuantity, updateCartPage } from '../../data/cart.js';
 import { getProduct } from '../../data/products.js';
 import { deliveryOptions, getDeliveryOption } from '../../data/deliveryOptions.js';
+import renderCheckoutHeader from './checkoutHeader.js';
 import renderPaymentSummary from './paymentSummary.js';
 // default export - no curly{}
 import formatCurrency from '../utils/money.js';
@@ -35,7 +36,7 @@ export function renderProductOrderSummary() {
 
     checkoutHTML += `
 
-      <div class="checkout-cart-container__product-wrapper js-product-wrapper-container-${matchedProduct.id}">
+      <div class="checkout-cart-container__product-wrapper">
         
         <!----------- left section ---------->
         <h3 class="checkout-cart-container__left-heading">Delivery date: ${deliveryDateString}</h3>
@@ -69,12 +70,6 @@ export function renderProductOrderSummary() {
     `;
   });
   document.querySelector('.js-checkout-cart-container__left-wrapper').innerHTML = checkoutHTML;
-
-  // CHECKOUT HEAD CART QNT
-  const totalCartQuantityElement =  document.querySelector('.js-gloabal-header__mid-cart-quantity');
-  const cartQuantity = totalCartQuantity();
-  totalCartQuantityElement.innerHTML = `${cartQuantity} item${cartQuantity > 1 ? 's' : ''}`;
-
 
   //CHOOSE DELIVERY OPT
   function generateOptions(matchedProduct,cartItem) {
@@ -115,11 +110,15 @@ export function renderProductOrderSummary() {
       const {productId} = link.dataset;  // const productId = link.dataset.productId; 
       //delete it
       deleteCart(productId);
+
       //update in HTML
-      const containerElement =  document.querySelector(`.js-product-wrapper-container-${productId}`);
-      containerElement.remove();
+      // const containerElement =  document.querySelector(`.js-product-wrapper-container-${productId}`);
+      // containerElement.remove();
+      renderProductOrderSummary(); 
+
       //updt total cart quantity
-      totalCartQuantityElement.innerHTML =  `${totalCartQuantity()} item${totalCartQuantity() > 1 ? 's' : ''}`;
+      //totalCartQuantityElement.innerHTML =  `${totalCartQuantity()} item${totalCartQuantity() > 1 ? 's' : ''}`;
+      renderCheckoutHeader();
     });
   });
 
@@ -156,6 +155,7 @@ export function renderProductOrderSummary() {
         saveNewQuantity(productId); //1
         removeInputSave(productId); //2
         renderPaymentSummary();
+        renderCheckoutHeader();
       });
   });
   function saveNewQuantity(productId) {
@@ -173,7 +173,7 @@ export function renderProductOrderSummary() {
       const quantDisplayElement = containerElement.querySelector('.js-quant-display');
       quantDisplayElement.textContent = `Quantity: ${newQuantity}`;
     });
-    totalCartQuantityElement.innerHTML = `${totalCartQuantity()} item${totalCartQuantity() > 1 ? 's' : ''}`;
+    renderCheckoutHeader();
     saveToStorage();
   };
   // to remove second
