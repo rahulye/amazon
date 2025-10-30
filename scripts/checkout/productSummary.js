@@ -23,7 +23,7 @@ export function renderProductOrderSummary() {
     const matchedOption = getDeliveryOption(cartItem);
    
     const today = dayjs();
-    const deliveryDate = today.add( matchedOption.inDeliveryDays , 'days' );  // syntax-->   dayjs().add(number, unit);
+    const deliveryDate = today.add( matchedOption.inDeliveryDays , 'days' );  // syntax-->   dayjs(   ).add(number, unit);
     const deliveryDateString = deliveryDate.format('dddd, MMMM DD');
 
 
@@ -47,7 +47,7 @@ export function renderProductOrderSummary() {
             </div>
             <div class="checkout-cart-container__left-abt-product">
               <span class="checkout-cart-container__left-abt-product-text">${matchedProduct.name}</span>
-              <span class="checkout-cart-container__left-abt-product-price-text">$${formatCurrency(matchedProduct.priceCents)}</span>
+              <span class="checkout-cart-container__left-abt-product-price-text">${matchedProduct.getPriceUrl()}</span>
               <div class="checkout-cart-container__left-quant-upt-del" data-product-id="${matchedProduct.id}">
                 <span class="js-quant-display">Quantity: ${cartItem.quantity}</span>
                 <span class="btn js-update-link" data-product-id = "${matchedProduct.id}">Update</span>

@@ -15,11 +15,11 @@ products.forEach( (product) => {
         <h2 class="hero-section__product-card-text">${product.name}</h2>
         
         <div class="hero-section__product-card-rating-box">
-          <img class="hero-section__product-card-rating-image" src="images/main/product-rating-stars/rating-${product.rating.stars * 10}.png" alt="Product-Ratings-Imgae">
+          <img class="hero-section__product-card-rating-image" src=${product.getImageUrl()} alt="Product-Ratings-Imgae">
           <div class="hero-section__product-card-rating-count">${product.rating.count}</div>
         </div>
 
-        <span class="hero-section__product-card-price">$${formatCurrency(product.priceCents)}</span>
+        <span class="hero-section__product-card-price">${product.getPriceUrl()}</span>
         
         <select class="hero-section__product-card-quantity js-product-quantity-selector-${product.id}">
           <option selected value="1">1</option>
