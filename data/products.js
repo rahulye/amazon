@@ -11,7 +11,9 @@ export function getProduct(productId) {
 };
 
 
-class Product {
+// OOPS
+// 1) class, objects
+class Product { 
   
   id;   // id = undefined 
   image;
@@ -34,7 +36,29 @@ class Product {
   getPriceUrl() {
     return `$${formatCurrency(this.priceCents)}`;
   };
+
+  getsizeChart() {
+    return ``;
+  };
 };
+
+// 2)Inherittance, polymorphism
+
+class Clothes extends Product {
+
+  clothSizeChart;
+  
+  constructor(productDetails) {
+    super(productDetails);
+    this.clothSizeChart = productDetails.sizeChartLink;
+  };
+
+  getsizeChart() {
+    return `<a class="size-chart-link" href="images/main/size-chart/SizeChart.jpg" target="_blank">Size Chart</a>`;
+  };
+};
+
+
 
 export const products = [
   {
@@ -730,7 +754,11 @@ export const products = [
     ]
   },
 ].map( (productDetails) => {
-  return new Product(productDetails);
+  if( productDetails.type === 'clothing'){
+    return new Clothes(productDetails);
+  }; 
+  return new Product(productDetails); // creating objects for Product class
 });
 
 // here the map take the product array and returns a new array with new objects for all the products
+

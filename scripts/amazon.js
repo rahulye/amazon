@@ -12,7 +12,7 @@ products.forEach( (product) => {
         <div class="hero-section__product-card-image-cont">
           <img class="hero-section__product-card-image" src="${product.image}" alt="Product-Image">
         </div>
-        <h2 class="hero-section__product-card-text">${product.name}</h2>
+        <h2 class="hero-section__product-card-text">${product.name}-${product.getsizeChart()}</h2>
         
         <div class="hero-section__product-card-rating-box">
           <img class="hero-section__product-card-rating-image" src=${product.getImageUrl()} alt="Product-Ratings-Imgae">
@@ -38,7 +38,7 @@ products.forEach( (product) => {
           <span>Added</span>
           <img class="hero-section__product-card-added-img" src="images/main/icons/checkmark.png" alt="Add-icon-image">
         </div>
-
+        
         <button class="hero-section__product-card-add-btn js-product-card-add-btn" data-product-id = "${product.id}">Add to Cart</button>
       
       </article>

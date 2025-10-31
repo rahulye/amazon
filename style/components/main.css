@@ -95,6 +95,14 @@
     width: 1rem;
   }
 
+  .size-chart-link {
+    text-decoration: none;
+  }
+
+  .size-chart-link:hover {
+    text-decoration: underline;
+  }
+
   .hero-section__product-card-add-btn {
     background-color: var(--clr-yellow);
     border-radius: 1rem;
