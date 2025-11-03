@@ -12,7 +12,7 @@ products.forEach( (product) => {
         <div class="hero-section__product-card-image-cont">
           <img class="hero-section__product-card-image" src="${product.image}" alt="Product-Image">
         </div>
-        <h2 class="hero-section__product-card-text">${product.name}-${product.getsizeChart()}</h2>
+        <h2 class="hero-section__product-card-text">  ${product.name} ${product.getsizeChart()}</h2>
         
         <div class="hero-section__product-card-rating-box">
           <img class="hero-section__product-card-rating-image" src=${product.getImageUrl()} alt="Product-Ratings-Imgae">

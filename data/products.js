@@ -46,15 +46,15 @@ class Product {
 
 class Clothes extends Product {
 
-  clothSizeChart;
+  // clothSizeChart;
   
   constructor(productDetails) {
     super(productDetails);
-    this.clothSizeChart = productDetails.sizeChartLink;
+    // this.clothSizeChart = productDetails.sizeChartLink;
   };
 
   getsizeChart() {
-    return `<a class="size-chart-link" href="images/main/size-chart/SizeChart.jpg" target="_blank">Size Chart</a>`;
+    return `<a class="size-chart-link" href="images/main/size-chart/SizeChart.jpg" target="_blank">-Size Chart</a>`;
   };
 };
 
