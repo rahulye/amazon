@@ -774,6 +774,7 @@ export function loadProducts(functn) {
 
   xhr.addEventListener('load' , () => {
     // console.log(xhr.response);
+    // console.log('2.load products');
     
     products = JSON.parse(xhr.response).map( (productDetails) => {
                   if( productDetails.type === 'clothing'){
@@ -781,11 +782,10 @@ export function loadProducts(functn) {
                   }; 
                   return new Product(productDetails); // creating objects for Product class
                });
-    console.log(products);
+    // console.log(products);
     functn();
   }); 
 
   xhr.open('GET', 'https://supersimplebackend.dev/products');
   xhr.send();
 };
-loadProducts();

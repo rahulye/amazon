@@ -103,3 +103,14 @@ export function saveToStorage() {
   localStorage.setItem( 'cart' , JSON.stringify(cart));
   localStorage.setItem( 'totalCartQuantity' , JSON.stringify(totalCartQuantity()));
 };
+
+
+export function loadCart(funct) {
+  const xhr = new XMLHttpRequest();
+  xhr.addEventListener( 'load' , () => {
+    console.log(xhr.response);
+    funct();
+  });
+  xhr.open('GET' , 'https://supersimplebackend.dev/cart');
+  xhr.send();
+};
