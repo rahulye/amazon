@@ -105,6 +105,44 @@ export function saveToStorage() {
 };
 
 
+// load cart from backend 
+
+// -------CALLBACk-----
+// export function loadCart(funct) {
+//   const xhr = new XMLHttpRequest();
+//   xhr.addEventListener( 'load' , () => {
+//     console.log(xhr.response);
+//     funct();
+//   });
+//   xhr.open('GET' , 'https://supersimplebackend.dev/cart');
+//   xhr.send();
+// };
+
+// -------FETCH------
+
+// export function loadCartFetch(value) {
+//   const promise = fetch('https://supersimplebackend.dev/cart')
+//   .then( (response) => {
+//     return response;
+//   })
+//   .then( () => {
+//     console.log('load cart');
+//     return value;  // these returns of value go to (.then)
+//   });
+//   return promise;  
+// };
+
+// loadCartFetch().then( (value) => {
+//   console.log('next step Cart');
+//   return value;
+// });
+
+
+//  TUTORIAL ANSWER
+
+
+// -------CALLBACk-----
+
 export function loadCart(funct) {
   const xhr = new XMLHttpRequest();
   xhr.addEventListener( 'load' , () => {

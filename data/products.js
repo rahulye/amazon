@@ -765,27 +765,89 @@ class Clothes extends Product {
 
 
 
+
 // ----------  EXPORTING PRODUCS FROM BACKEND -------------
+// 
+
+
 
 export let products = [] ;
+// ----------  EXPORTING PRODUCS FROM BACKEND -------------
 
-export function loadProducts(functn) {
-  const xhr = new XMLHttpRequest();
+// export function loadProducts(functn) {
+//   const xhr = new XMLHttpRequest();
 
-  xhr.addEventListener('load' , () => {
-    // console.log(xhr.response);
-    // console.log('2.load products');
+//   xhr.addEventListener('load' , () => {
+//     // console.log(xhr.response);
+//     // console.log('2.load products');
     
-    products = JSON.parse(xhr.response).map( (productDetails) => {
-                  if( productDetails.type === 'clothing'){
-                    return new Clothes(productDetails);
-                  }; 
-                  return new Product(productDetails); // creating objects for Product class
-               });
-    // console.log(products);
-    functn();
-  }); 
+//     products = JSON.parse(xhr.response).map( (productDetails) => {
+//                   if( productDetails.type === 'clothing'){
+//                     return new Clothes(productDetails);
+//                   }; 
+//                   return new Product(productDetails); // creating objects for Product class
+//                });
+//     // console.log(products);
+//     functn();
+//   }); 
 
-  xhr.open('GET', 'https://supersimplebackend.dev/products');
-  xhr.send();
-};
+//   xhr.open('GET', 'https://supersimplebackend.dev/products');
+//   xhr.send();
+// };
+
+
+// using fetch to request products
+
+// export function loadProductsFetch(value) {
+//   const promise = 
+//     fetch('https://supersimplebackend.dev/products')
+//         .then( (response) => { // fetch uses promise so, aftr the request it will go to the next (.then) 
+//           return response.json();  // respoonse.json() is an asynchronous and returns a promise so, we returns the product data asproductDetails and pass it to below
+//         })
+//         .then( (productsData) => {
+//           products = productsData.map( (productDetails) => {
+//             if( productDetails.type === 'clothing'){
+//               return new Clothes(productDetails);
+//             }; 
+//           return new Product(productDetails);
+//         });
+//         console.log('load products');
+//         return value;          // these returns of value go to (.then)
+//       });
+//   return promise;    
+// };
+
+// loadProductsFetch().then( (value) => { // returns the promise and the next step further goes....
+//   console.log('next step Products');
+//   return value;
+// });  
+
+// if i keep like this the loadProductsFetch().then()..... 'loadproductsfetch()' is calledagain makes to print 'load products' in consoleagain
+
+
+
+
+//  TUTORIAL ANSWER
+
+export function loadProductsFetch(value) {
+  const promise = 
+    fetch('https://supersimplebackend.dev/products')
+      .then( (response) => { 
+          return response.json()
+        }) 
+      .then( (productsData) => {
+        products = productsData.map( (productDetails) => {
+          if( productDetails.type === 'clothing'){
+            return new Clothes(productDetails);
+          }; 
+            return new Product(productDetails);
+        });
+        console.log('load products');
+        return value;         
+       }) 
+      .then( (value) => {
+        // console.log('next step Products');
+        return value;
+      });
+  return promise;    
+};  
