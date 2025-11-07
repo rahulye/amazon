@@ -174,17 +174,25 @@ import { loadCart } from '../data/cart.js';
 //  TUTORIAL ANSWER
 
 async function loadPage() {  
-  // console.log('load page'); 
-
-  // for product
-  await loadProductsFetch();    // equal to -->  .then( ()=> { return loadProductsFetch()})
-  
-  // for cart
-  await new Promise( (resolve) => {
-    loadCart( () => {
-      resolve();
+  try {
+    // throw 'manual error1';   if it sees the throwits skips aal the lines directly go for catch
+    // console.log('load page'); 
+    
+    // for product
+    await loadProductsFetch();    // equal to -->  .then( ()=> { return loadProductsFetch()})
+   
+    // for cart
+    const result = await new Promise( ( resolve , reject ) => {
+      // throw 'manual error1';
+      loadCart( () => {
+        // reject('error2');   // we create error in asynchronous or in future
+        resolve();
+      });
     });
-  });
+  }
+  catch(error) {
+    console.log('Unexpecter error. Please try again later.')
+  }
 
   renderCheckoutHeader();
   renderProductOrderSummary();

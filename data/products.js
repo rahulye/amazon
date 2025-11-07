@@ -774,26 +774,31 @@ class Clothes extends Product {
 export let products = [] ;
 // ----------  EXPORTING PRODUCS FROM BACKEND -------------
 
-// export function loadProducts(functn) {
-//   const xhr = new XMLHttpRequest();
+// used this method for amzon.js 
+export function loadProducts(functn) {
+  const xhr = new XMLHttpRequest();
 
-//   xhr.addEventListener('load' , () => {
-//     // console.log(xhr.response);
-//     // console.log('2.load products');
-    
-//     products = JSON.parse(xhr.response).map( (productDetails) => {
-//                   if( productDetails.type === 'clothing'){
-//                     return new Clothes(productDetails);
-//                   }; 
-//                   return new Product(productDetails); // creating objects for Product class
-//                });
-//     // console.log(products);
-//     functn();
-//   }); 
+  xhr.addEventListener('load' , () => {
+    // console.log(xhr.response);
 
-//   xhr.open('GET', 'https://supersimplebackend.dev/products');
-//   xhr.send();
-// };
+    products = JSON.parse(xhr.response).map( (productDetails) => {
+                  if( productDetails.type === 'clothing'){
+                    return new Clothes(productDetails);
+                  }; 
+                  return new Product(productDetails); // creating objects for Product class
+               });
+    console.log('load products');
+    functn();
+  }); 
+
+  // to handle errors 
+  xhr.addEventListener( 'error' , ( ) => {
+    console.log('error here');
+  });
+
+  xhr.open('GET', 'https://supersimplebackend.dev/products');
+  xhr.send();
+};
 
 
 // using fetch to request products
@@ -809,11 +814,14 @@ export let products = [] ;
 //             if( productDetails.type === 'clothing'){
 //               return new Clothes(productDetails);
 //             }; 
-//           return new Product(productDetails);
+//             return new Product(productDetails);
+//           });
+//           console.log('load products');
+//           return value;          // these returns of value go to (.then)
+//         })
+//         .catch( () => {
+//           console.log('Unexpecter error. Please try again later.')
 //         });
-//         console.log('load products');
-//         return value;          // these returns of value go to (.then)
-//       });
 //   return promise;    
 // };
 

@@ -1,6 +1,5 @@
 import {cart, addToCart, totalCartQuantity} from '../data/cart.js';
 import {products, loadProducts} from '../data/products.js';
-import { formatCurrency } from './utils/money.js';
 
 loadProducts(loadProductsGrid);
 
@@ -94,12 +93,6 @@ function loadProductsGrid() {
 
 
 
-
-
-
-
-
-
 // code without comments of both add to cart and update cart 
 
 // 
@@ -154,3 +147,4 @@ function loadProductsGrid() {
 
 
 
+// -------

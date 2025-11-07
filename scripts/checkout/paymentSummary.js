@@ -3,6 +3,7 @@ import { getProduct } from "../../data/products.js";
 import { getDeliveryOption } from "../../data/deliveryOptions.js";
 import formatCurrency from "../utils/money.js";
 import { totalCartQuantity } from "../../data/cart.js";
+import { addOrder, orders } from "../orders.js";
 
 export default function renderPaymentSummary() {
   
@@ -50,9 +51,38 @@ export default function renderPaymentSummary() {
         </li>
       </ol>
     </section>
-    <button class="checkout__right-order-btn">Place Your Order</button>
+    <button class="checkout__right-order-btn js-place-order-btn">Place Your Order</button>
   `;
   document.querySelector('.js-order-summary').innerHTML = paymentSummaryHTML;
+
+  // 1. first when we click this btn we make a request to the backend to reate the order
+  // 2. we can use use promise which we could use .then but better way is async await makes the code run like normal
+  // 3. the response.json() cuz response value here prints the response object we want data not metadata so here we use response.json() convert to JS object by parsing
+  //       Here, the response.json() is also a promise so we add await here to to load this step before move to next line
+  
+  document.querySelector('.js-place-order-btn').addEventListener( 'click' , async () => {
+    try{
+      const response = await fetch( 'https://error.supersimplebackend.dev/orders' , {
+        method : 'POST',
+        headers : {
+          'Content-Type' : 'application/json'
+        },
+        body : JSON.stringify({
+          cart : cart
+        })
+      });
+      const data = await response.json(); 
+      console.log(data);
+      addOrder(data);
+    } 
+    catch(error) {
+      console.log('Backend Server problem. Try again later. \n' + error);
+    };
+
+    //to open order page after the click 
+    window.location.href = 'orders.html';         // https://www.site.com/----replaced-----
+  });
 };
+
 
 
