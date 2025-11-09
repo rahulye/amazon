@@ -2,16 +2,19 @@
                                 /* ------MAIN SECTION---- */
 
 .hero-section-order__heading-txt {
-  margin: clamp(1rem, 1vw, 2rem);
-  font-size: clamp(1.3rem, 1vw, 1.5rem);
+  margin-top: 2rem;
+  font-size: clamp(1.5rem, 1vw, 2rem);
 }
 
 .order__wrapper {
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--clr-grey);
-  border-radius: 1rem;
   overflow: hidden;
+}
+
+.order-flex {
+  display: flex;
+  flex-direction: column;
 }
 
                                       /* product-card */ 
@@ -19,6 +22,10 @@
                                       /* hero section */
   
                     /* left section */
+.order-divider {
+  margin-bottom: 2rem;
+}
+
 .order__place-tot-id-section {
   display: flex;
   flex-direction: column;
@@ -50,6 +57,10 @@
   align-items: flex-end;
 }
 
+.border{
+  margin-top: 3.5rem;
+}
+
 .order__product-details-section {
   display: flex;
   flex-direction: column;
@@ -64,6 +75,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   flex: 4;
   gap: 1rem;
 }
@@ -95,6 +107,7 @@
   display: flex;
   justify-content: space-around;
   gap: 0.2rem;
+  
 }
 
 .order__product-details-btn-icon {
@@ -113,7 +126,7 @@
 
 .order__track-pckg-button {
   background-color: var(--clr-white);
-  box-shadow: 0 0 5px var(--clr-grey);
+  box-shadow: 0 0 10px var(--clr-grey);
   border-radius: 0.5rem;
   font-size: clamp(1rem, 1.5vw, 1.1rem);
   padding: 0.3rem 0.5rem;

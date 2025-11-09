@@ -1,9 +1,11 @@
-import { cart } from "../../data/cart.js";
-import { getProduct } from "../../data/products.js";
+import { cart, saveToStorage } from "../../data/cart.js";
+import { getProduct, products } from "../../data/products.js";
 import { getDeliveryOption } from "../../data/deliveryOptions.js";
 import formatCurrency from "../utils/money.js";
 import { totalCartQuantity } from "../../data/cart.js";
-import { addOrder, orders } from "../orders.js";
+import { addOrder, orders, renderOrders } from "../orders.js";
+import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
+
 
 export default function renderPaymentSummary() {
   
@@ -14,7 +16,7 @@ export default function renderPaymentSummary() {
     const product = getProduct(cartItem.productId);
     productPriceCents += product.priceCents * cartItem.quantity;  
     
-    const deliveryOptionID = getDeliveryOption(cartItem);
+    const deliveryOptionID = getDeliveryOption(cartItem.deliveryOptionsId);
     productShippingPriceCents += deliveryOptionID.priceCents;
   });
   
@@ -59,29 +61,59 @@ export default function renderPaymentSummary() {
   // 2. we can use use promise which we could use .then but better way is async await makes the code run like normal
   // 3. the response.json() cuz response value here prints the response object we want data not metadata so here we use response.json() convert to JS object by parsing
   //       Here, the response.json() is also a promise so we add await here to to load this step before move to next line
+
   
   document.querySelector('.js-place-order-btn').addEventListener( 'click' , async () => {
+
+    if(cart.length===0) {
+        alert('No Prodcuts in the Cart :-(');
+        return;
+      }
+
     try{
-      const response = await fetch( 'https://error.supersimplebackend.dev/orders' , {
+    
+      //send price and deliveryoption details
+
+      const orderProducts = cart.map( (item) => {        
+        
+        const product = getProduct(item.productId);
+        const today = dayjs();
+        const deliveryOption = getDeliveryOption(item.deliveryOptionsId);
+        const deliveryDate = today.add(deliveryOption.inDeliveryDays, 'day').toISOString();
+
+        return {
+          productId: item.productId,
+          quantity: item.quantity,
+          deliveryOptionsId: item.deliveryOptionsId,
+          priceCents: product.priceCents * item.quantity + deliveryOption.priceCents,
+          estimatedDeliveryTime: deliveryDate,
+          variation: null
+        };
+      });
+
+      const response = await fetch( 'https://supersimplebackend.dev/orders' , {
         method : 'POST',
         headers : {
           'Content-Type' : 'application/json'
         },
         body : JSON.stringify({
-          cart : cart
+          cart : cart,
+          products : orderProducts
         })
       });
+      localStorage.removeItem('cart');
+      saveToStorage();
       const data = await response.json(); 
-      console.log(data);
       addOrder(data);
+      // to open order page after the click 
+      window.location.href = 'orders.html';         // https://www.site.com/----replaced-----
     } 
     catch(error) {
       console.log('Backend Server problem. Try again later. \n' + error);
     };
 
-    //to open order page after the click 
-    window.location.href = 'orders.html';         // https://www.site.com/----replaced-----
   });
+
 };
 
 

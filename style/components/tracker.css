@@ -19,7 +19,12 @@
   flex-direction: column;
 }                    
 
-.tracker__product-name, .tracker__product-quantity {
+.tracker__product-name {
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  font-weight: 600;
+}
+
+.tracker__product-quantity {
   font-size: clamp(0.75rem, 1vw, 0.8rem);
 }
 
@@ -57,4 +62,5 @@
 .tracker__product-progress-flows {
   background-color: var(--clr-green-light);
   height: 0.5rem;
+  width: 10%;
 }

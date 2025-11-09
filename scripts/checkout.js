@@ -3,6 +3,7 @@ import renderProductOrderSummary from './checkout/productSummary.js';
 import renderPaymentSummary from './checkout/paymentSummary.js';
 import { loadProductsFetch } from '../data/products.js';
 import { loadCart } from '../data/cart.js';
+import './orders.js';
 
 
 

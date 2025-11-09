@@ -16,12 +16,12 @@ export const deliveryOptions = [
   }
 ];
 
-export function getDeliveryOption(cartItem){
+export function getDeliveryOption(deliveryOptionId){
   let matchedOption;
   deliveryOptions.forEach( (option) => {
-    if( option.id === cartItem.deliveryOptionsId) {
+    if( option.id === deliveryOptionId) {
       matchedOption = option;
     };
   });
-  return matchedOption || deliveryOptions[1];
+  return matchedOption || deliveryOptions[0];
 };

@@ -28,8 +28,10 @@
 
     <nav class="global-header__wrapper">
 
-      <section class="global-header__left">
-        <img class="global-header__left-home-icon-img" src="images/header/header-navbar/amazon-logo-white.png" alt="Amazon logo">
+       <section class="global-header__left">
+        <a href="index.html">
+          <img class="global-header__left-home-icon-img" src="images/header/header-navbar/amazon-logo-white.png" alt="Amazon logo">
+        </a>
       </section>
 
       <section class="global-header__middle">
@@ -42,13 +44,13 @@
       </section>
       
       <section class="global-header__right">
-        <a class="global-header__right-return">
+        <a class="global-header__right-return" href="orders.html">
           <span class="global-header__right-line1">Returns</span>
           <span class="global-header__right-line2">& Orders</span>
         </a>
-        <a class="global-header__right-cart"> 
+        <a class="global-header__right-cart" href="checkout.html"> 
           <img class="global-header__right-cart-icon" src="images/header/header-navbar/cart-icon.png" alt="Cart-Icon">
-          <div class="global-header__right-cart-count">3</div>
+          <div class="global-header__right-cart-count"></div>
           <div class="global-header__right-cart-text">Cart</div>
         </a>
       </section>
@@ -63,7 +65,7 @@
 
     <article class="tracker__product-card">
 
-      <h1 class="tracker__product-order-date">Delivered on Friday, August 22</h1>
+      <h1 class="tracker__product-order-date"></h1>
       <span class="tracker__product-name">Intermediate Size Basketball</span>
       <span class="tracker__product-quantity">Quantity: 1</span>
       <div class="tracker__product-image-cont">
@@ -86,6 +88,7 @@
 
   </main>
 
+  <script type="module" src="./scripts/tracker.js"></script>
 
 
 </body>

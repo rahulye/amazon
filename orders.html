@@ -52,7 +52,7 @@
         </a>
         <a class="global-header__right-cart" href="checkout.html"> 
           <img class="global-header__right-cart-icon" src="images/header/header-navbar/cart-icon.png" alt="Cart-Icon">
-          <div class="global-header__right-cart-count">3</div>
+          <div class="global-header__right-cart-count"></div>
           <div class="global-header__right-cart-text">Cart</div>
         </a>
       </section>
@@ -66,55 +66,14 @@
     
     <h1 class="hero-section-order__heading-txt">Your Orders</h1>
 
-    <article class="order__wrapper">
+      <article class="order__wrapper order-divider">
+        <div class="order-flex js-order-summary">
 
-            <!-- left section -->
-      <section class="order__place-tot-id-section">
-        <div class="order__placed-date">
-          <span class="order__placed-txt">Order Placed:</span>
-          <span>October 4</span>
-        </div>
-        <div class="order__price">
-          <span class="order__total-txt">Total:</span>
-          <span>$51.58</span>
-        </div>
-        <div class="order__ID-wrapper">
-          <div class="order__ID">
-            <span class="order__ID-txt">Order ID:</span>
-            <span>5874d89e-2e00-72ba-5bb7-9900af021636</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="order__product-details-section">
-        <div class="order__product-section">
-          <div class="order__product-image-cont">
-            <img class="order__product-card-image" src="images/main/product-image/athletic-cotton-socks-6-pairs.jpg" alt="Product-Image">
-          </div>
-          
-          <div class="order__product-details">
-            <h3>Intermediate Size Basketball</h3>
-            <span>Arriving on: October 8</span>
-            <span>Quantity: 2</span>
-            <button class="order__product-details-btn">
-              <img class="order__product-details-btn-icon" src="images/order/buy-again-btn.png" alt="buy again icon">
-              <a href="index.html">
-                Buy it again
-              </a>
-            </button>
-          </div>
-        </div>
-
-            <!-- right section -->
-
-        <div class="order__track-pckg-wrapper">
-          <a class="order__track-pckg" href="tracker.html">
-            <button class="order__track-pckg-button">Track package</button>
-          </a>
-        </div>
-      </section>
-    </article>
+        </div>       
+      </article>
 
   </main>
+  <script type="module" src="./scripts/orders.js"></script>
 </body>
 </html>
+

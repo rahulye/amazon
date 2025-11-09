@@ -20,7 +20,7 @@ export function renderProductOrderSummary() {
     const matchedProduct = getProduct(productId);
 
     //DELIVEY DATE - we click the delivery options acccording to that date will change
-    const matchedOption = getDeliveryOption(cartItem);
+    const matchedOption = getDeliveryOption(cartItem.deliveryOptionsId);
    
     const today = dayjs();
     const deliveryDate = today.add( matchedOption.inDeliveryDays , 'days' );  // syntax-->   dayjs(   ).add(number, unit);
@@ -101,6 +101,7 @@ export function renderProductOrderSummary() {
                             // ------ redering MVC ----------- //
       renderProductOrderSummary();   
       renderPaymentSummary();
+
     });
   });
 
@@ -143,6 +144,7 @@ export function renderProductOrderSummary() {
         saveNewQuantity(productId);
         removeInputSave(productId);
         inputElement.removeEventListener('keydown', handleEnter);
+        renderPaymentSummary();
       };
     };
   inputElement.addEventListener('keydown', handleEnter);   // event is automatically passed by the browser. no need to pass parameter
