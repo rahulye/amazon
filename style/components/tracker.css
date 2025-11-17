@@ -53,6 +53,7 @@
 .tracker__product-progress-flow-cont{
   border-radius: 1rem;
   overflow: hidden;
+  border: 1px solid var(--clr-green-light);
 }
 
 .tracker__product-progress-cont span {

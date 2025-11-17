@@ -8,7 +8,6 @@ const productId = url.searchParams.get("productId");
 const orderCart= JSON.parse(localStorage.getItem('orders')) || [];
 
 
-console.log(orderCart);
 
 const order = orderCart.find( (item) => {
   if( item.id==orderId ) {
@@ -24,7 +23,6 @@ const product = order.products.find( (item) => {
 
 const productData = getProduct(product.productId);
 
-console.log(productData.quantity);
 
 document.querySelector('.tracker__product-name').innerHTML = productData.name;
 document.querySelector('.tracker__product-image-cont').innerHTML = `<img class="tracker__product-image" src="${productData.image}" alt="Product-Image">`;
