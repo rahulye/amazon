@@ -104,6 +104,12 @@ export function saveToStorage() {
   localStorage.setItem( 'totalCartQuantity' , JSON.stringify(totalCartQuantity()));
 };
 
+// reset cart after placed order
+export function resetCart() {
+  cart = [];
+  saveToStorage();
+}
+
 
 // load cart from backend 
 

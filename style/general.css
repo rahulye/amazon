@@ -49,7 +49,7 @@ html {
 }
 
 body {
-  font-family: "Amazon Ember", Roboto, Arial, sans-serif;
+  font-family: "Amazon Ember", 'Roboto', Arial, sans-serif;
   background-color: var(--clr-white);
 }
 

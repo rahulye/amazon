@@ -25,6 +25,9 @@ function saveToStorage() {
 
 
 export function renderOrders() {
+
+  document.querySelector('.js-cart-count').innerHTML = totalCartQuantity();
+
   let orderHTML = '';
 
   orders.forEach((orderItem) => {

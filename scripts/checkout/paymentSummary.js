@@ -1,4 +1,4 @@
-import { cart, saveToStorage } from "../../data/cart.js";
+import { cart, resetCart, saveToStorage } from "../../data/cart.js";
 import { getProduct, products } from "../../data/products.js";
 import { getDeliveryOption } from "../../data/deliveryOptions.js";
 import formatCurrency from "../utils/money.js";
@@ -101,8 +101,7 @@ export default function renderPaymentSummary() {
           products : orderProducts
         })
       });
-      localStorage.removeItem('cart');
-      saveToStorage();
+
       const data = await response.json(); 
       addOrder(data);
       // to open order page after the click 
@@ -111,6 +110,8 @@ export default function renderPaymentSummary() {
     catch(error) {
       console.log('Backend Server problem. Try again later. \n' + error);
     };
+
+    resetCart();
 
   });
 
