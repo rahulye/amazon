@@ -4,9 +4,33 @@ import {products, loadProducts} from '../data/products.js';
 loadProducts(loadProductsGrid);
 
 function loadProductsGrid() {
+
+  //search input
+  document.querySelector('.js-search-btn').addEventListener( 'click' , (event) => {
+    event.preventDefault(); // its a form--> so its automatically refresh when clicked it so we use this to prevent
+    const productName = document.querySelector('.js-search-bar').value;
+    window.location.href = `index.html?search=${productName}`;
+  });
+
+  // get the product name from the url and list it
+  const url = new URL(window.location.href);
+  let searcProduct = url.searchParams.get('search');
+  let filterProduct = products;
+
+  if(searcProduct) {
+    searcProduct = searcProduct.toLowerCase();
+    filterProduct = products.filter((product) => {
+      return product.name.toLowerCase().includes(searcProduct) || product.keywords.includes(searcProduct);    //includes--> "iphone 15 pro".includes("pro") --> gives value = true
+    });
+  };
+  if (filterProduct.length === 0) {
+    alert(`No products found for "${searcProduct}"`);
+    return;
+  }
+
+
   let productsHTML = '';
-  
-  products.forEach( (product) => {
+  filterProduct.forEach( (product) => {
   
     productsHTML += `
       <article class="hero-section__product-card">

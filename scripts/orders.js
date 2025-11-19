@@ -26,7 +26,10 @@ function saveToStorage() {
 
 export function renderOrders() {
 
-  document.querySelector('.js-cart-count').innerHTML = totalCartQuantity();
+  const cartCount = document.querySelector('.js-cart-count');
+  if (cartCount) {
+    cartCount.innerHTML = totalCartQuantity();
+  }
 
   let orderHTML = '';
 
@@ -112,7 +115,28 @@ export function renderOrders() {
   container.innerHTML = orderHTML;
 };
     
+        // // here we added this cuz 
+        
+// Why this happens (simple explanation)
+// type="module" loads the script asynchronously
+// Browser does NOT wait for full HTML
+// JS runs too early
+// Elements are not loaded yet
+// querySelector returns null → error
+
+// Wrapping in DOMContentLoaded fixes that.
+
 window.addEventListener('DOMContentLoaded', () => {
+  const searchBtn = document.querySelector('.js-search-btn');
+  const searchBar = document.querySelector('.js-search-bar');
+  if(searchBar&&searchBtn) {
+    // input search , we already did it in the amazonjs so we just redirecting to that page browser will automatically reloads and show the matched items
+    document.querySelector('.js-search-btn').addEventListener( 'click' , (event) => {
+      event.preventDefault();
+      let productName = document.querySelector('.js-search-bar').value;
+      window.location.href = `index.html?search=${productName}`;
+    });
+  };
   renderOrders();
 });
 
