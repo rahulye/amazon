@@ -48,12 +48,11 @@
   }
   
                 /* right */
-  
-  .global-header__right-return {
-    flex-direction: column;
-    cursor: pointer;
+
+   .global-header__right-return{
+    display: none;
   }
-  
+
   .global-header__right-line1 {
     font-size: clamp(0.8rem, 1vw, 0.95rem);
   }
@@ -76,7 +75,7 @@
   
   .global-header__right-cart-count {
     position: absolute;
-    top: 0rem;
+    top: -0.2rem;
     left: 1.4rem;
     font-size: clamp(0.1rem, 1vw, 0.1rem);
     color: var(--clr-orange);
@@ -99,16 +98,23 @@
 
 
 
-
-
-/* xxs
-@media (min-width: 375px) {
-} */
-
-/*xs */
+/*xxs */
 /* @media (min-width: 475px){}   --actually i changed for this*/
 
 @media (min-width: 200px) {
+
+  .global-header__right {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+
+   .global-header__right-cart-count {
+    position: absolute;
+    top: 0rem;
+    left: 1.4rem;
+  }
+
   
   .global-header__middle {
   display: flex;
@@ -134,9 +140,18 @@
     object-fit: cover;
     object-position: center;
   }
-
 }
 
+
+
+/*xsm*/
+@media (min-width: 600px) {
+   .global-header__right-return {
+    flex-direction: column;
+    cursor: pointer;
+    display: flex; 
+  }
+}
 
 /* sm */
 /* @media (min-width: 640px) {
@@ -148,12 +163,7 @@
  .global-header__right{
   display: flex;
   justify-content: space-evenly;
-  
   }
-  .global-header__right-return {
-  display:inherit;
-  }
-
 } 
 
 /* lg */
