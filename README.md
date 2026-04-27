@@ -1,6 +1,5 @@
 # Amazon site (JavaScript)
-
-A simple Amazon-style e-commerce frontend without using framework to improve DOM manipulation.
+A vanilla JavaScript e-commerce frontend built to practice **DOM manipulation, cart logic, checkout flow, and modular JavaScript architecture** without frameworks.
 
 ## Tech Stack
 - HTML
